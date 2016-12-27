@@ -23,12 +23,12 @@ var fileUpload = require('express-fileupload');
 
 // for supervisor to use, so that can restart the app automatically,
 // don't need to terminate in the terminal often.
-var debug = require('debug')('my-application');
-app.set('port', process.env.PORT || 3000);
+// var debug = require('debug')('my-application');
+// app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
-});
+// var server = app.listen(app.get('port'), function() {
+//   debug('Express server listening on port ' + server.address().port);
+// });
 
 
 // view engine setup
