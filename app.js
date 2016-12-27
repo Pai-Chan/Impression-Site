@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
 	secret: settings.cookieSecret,
-	store: new MongoStore({url: 'mongodb://heroku_chenpei314:heroku_chenpei314@ds145208.mlab.com:45208/heroku_s4ggn8s2'})
+	store: new MongoStore({url: 'mongodb://heroku_chenpei314:heroku_chenpei314@ds145208.mlab.com:45208/heroku_s4ggn8s2'}) 
 }));
 
 // app.use(expressLayouts);
