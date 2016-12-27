@@ -1,0 +1,30 @@
+<%- include header.ejs %>
+<%- messages() %>
+<div class="hero-unit">
+	<h1>欢迎来到Microblog</h1>
+	<p>Microblog是一个基于Node.js的微博系统。</p>
+	<p>
+		<a class="btn btn-primary btn-large" href="/login">登录</a>
+		<a class="btn btn-large" href="/reg">立即注册</a>
+	</p>
+</div>
+
+<div class="row">
+	<div class="span4">
+		<h2>Carbo 说</h2>
+		<p>这是第一条微博的内容</p>
+	</div>
+	<div class="span4">
+		<h2>BYVoid 说</h2>
+		<p>
+			这是第二条微博的内容
+		</p>
+	</div>
+	<div class="span4">
+		<h2>第三个人 说</h2>
+		<p>
+			这是第三条微博的内容
+		</p>
+	</div>
+</div>
+<%- include footer.ejs %>

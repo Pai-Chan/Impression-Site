@@ -1,0 +1,28 @@
+<% posts.forEach(function(post, index) { %>
+
+ <div class="row">
+ 	<div class="span8">
+ 		<h2><a href="/u/<%= post.user %>"><%= post.user %></a> 说</h2> <p><small><%= post.time %></small></p>
+		<div style="position: relative; overflow:hidden;">
+			<img src="/image/<%= post.user %>/<%= post.post.name %>" />
+			<% comments.forEach(function(comment, index) { %>
+			<div class="comment" style="word-break:keep-all; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; position: absolute; top: 70%; left: 110%;"><h2><p style="text-shadow: 1px 1px 1px #bbb;"><%= comment %></p><h2></div>
+			<% }); %>
+		</div>
+ 	</div>
+</div>
+<% }); %>
+
+<% if (posts.length > 0 && isSelf) { %>
+<form method="get" class="well form-inline center" style="text-align: center;">
+	<input type="text;" name="delete" value="1" style="display: none;">
+	<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i> Delete My Profile</button>
+</form>	
+<% } %>
+
+<% if (posts.length > 0) { %>
+<form method="post" action="./<%= posts[0].user %>/comment" class="well form-inline center" style="text-align: center;">
+	<input type="text" class="span8" name="comment">
+	<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i>Send Danmaku</button>
+</form>
+<% } %>

@@ -1,0 +1,7 @@
+<form method="post" action="/post" enctype="multipart/form-data" class="well form-inline center" style="text-align: center; 
+<% if (!isSelf || posts.length > 0) { %>
+	display: none;
+<% } %> ">
+	<input type="file" class="file" name="profilepic">
+	<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i> Upload My Profile Picture</button>
+</form>

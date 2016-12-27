@@ -1,0 +1,58 @@
+var mongodb = require('./db');
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var url = 'mongodb://localhost:27017/blog';
+
+function User(user) {
+	this.name = user.name;
+	this.password = user.password;
+}
+module.exports = User;
+
+User.prototype.save = function save(callback) {
+	var user = {
+		name: this.name,
+		password: this.password,
+	};
+	MongoClient.connect(url, function(err, db) {
+		if (err) {
+			return callback(err);
+		}
+		db.collection('users', function(err, collection) {
+			if (err) {
+				db.close();
+				return callback(err);
+			}
+
+			// collection.ensureIndex('name', {unique: true});
+
+			collection.insert(user, {safe: true}, function(err, user) {
+				db.close();
+				callback(err, user);
+			});
+		});
+	});
+};
+
+User.get = function get(username, callback) {
+	MongoClient.connect(url, function(err, db) {
+		assert.equal(null, err);
+		console.log("Connect correctly to server.");
+		db.collection('users', function(err, collection) {
+			if (err) {
+				db.close();
+				return callback(err);
+			}
+
+			collection.findOne({name: username}, function(err, doc) {
+				db.close();
+				if (doc) {
+					var user = new User(doc);
+					callback(err, user);
+				} else {
+					callback(err, null);
+				}
+			});
+		});
+	});
+};
