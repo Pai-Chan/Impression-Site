@@ -14,7 +14,7 @@
         <script>
             $(document).ready(function(){
                 $(".comment").on("set-top-value", function(){
-                    $(this).css({"top" : Math.random() * 90 + "%"});
+                    $(this).css({"top" : Math.floor(Math.random() * 23) * 4 + "%"});
                     switch (Math.floor(Math.random() * 4)) {
                         case 0:
                             $(this).attr("class","comment text-warning");
