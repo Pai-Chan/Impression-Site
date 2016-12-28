@@ -11,9 +11,9 @@ var app = express();
 
 var settings = require('./settings');
 var session = require('express-session');
-debugger;
+
 var MongoStore = require('connect-mongo')(session);
-debugger;
+
 // var expressLayouts = require('express-ejs-layouts');
 
 var flash = require('connect-flash');
@@ -55,12 +55,12 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-debugger;
+
 app.use(session({
 	secret: settings.cookieSecret,
-	store: new MongoStore({url: 'mongodb://heroku_chenpei314:heroku_chenpei314.mlab.com:45208/heroku_s4ggn8s2'}) 
+	store: new MongoStore({url: 'mongodb://heroku_chenpei314:heroku_chenpei314@ds145208.mlab.com:45208/heroku_s4ggn8s2'}) 
 }));
-debugger;
+
 // app.use(expressLayouts);
 app.use(flash());
 app.use(function(req, res, next) {
@@ -68,14 +68,14 @@ app.use(function(req, res, next) {
   next();
 });
 app.use('/', routes);
-debugger;
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-debugger;
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -86,7 +86,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-debugger;
+
 
 // var settings = require('./settings');
 // var session = require('express-session');
