@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %> - Microblog</title>
+        <title><%= title %> - Impression Site</title>
         <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
         <style type='text/css'>
             body {
@@ -62,12 +62,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/">Microblog</a>
+                    <a class="brand" href="/">Impression Site</a>
                     <div class="nav-collapse">
                         <ul class="nav">
                             <li><a href="/">Main Page</a></li>
                             <% if (currentUser) { %>
-                            <li><a href="/u/<%= currentUser.name %>">My Impression</a></li>
+                            <li><a href="/u/<%= currentUser.name %>">Impression on me</a></li>
                             <% } %>
                             <% if (!currentUser) { %>
                             <li><a href="/login">Log in</a></li>
