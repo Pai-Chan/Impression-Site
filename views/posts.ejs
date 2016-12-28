@@ -1,8 +1,8 @@
 <% posts.forEach(function(post, index) { %>
 
  <div class="row">
- 	<div class="span8">
- 		<h2><a href="/u/<%= post.user %>"><%= post.user %></a> 说</h2> <p><small><%= post.time %></small></p>
+ 	<div class="span12">
+ 		<h2><a href="/u/<%= post.user %>"><%= post.user %>'s Profile</a></h2>
 		<div style="position: relative; overflow:hidden;">
 			<img src="/image/<%= post.user %>/<%= post.post.name %>" />
 			<% comments.forEach(function(comment, index) { %>
@@ -14,15 +14,20 @@
 <% }); %>
 
 <% if (posts.length > 0 && isSelf) { %>
-<form method="get" class="well form-inline center" style="text-align: center;">
-	<input type="text;" name="delete" value="1" style="display: none;">
-	<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i> Delete My Profile</button>
-</form>	
+<div style="margin: 20px auto;">
+	<form method="get" class="well form-inline center" style="text-align: center;">
+		<input type="text;" name="delete" value="1" style="display: none;">
+		Doesn't like this profile? Click the button on the right to remove it and upload a new picture! 
+		<button type="submit" class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete My Profile</button>
+	</form>
+</div>
 <% } %>
 
 <% if (posts.length > 0) { %>
-<form method="post" action="./<%= posts[0].user %>/comment" class="well form-inline center" style="text-align: center;">
-	<input type="text" class="span8" name="comment">
-	<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i>Send Danmaku</button>
-</form>
+<div style="margin: 20px auto;">
+	<form method="post" action="./<%= posts[0].user %>/comment" class="well form-inline center" style="text-align: center;">
+		<input type="text" class="span8" name="comment" placeholder="What's your impression on me? Tell me!">
+		<button type="submit" class="btn btn-info"><i class="icon-comment icon-white"></i>Send Impression</button>
+	</form>
+</div>
 <% } %>

@@ -33,13 +33,13 @@
 
                 $(".comment").on("comment-rightmost", function(){
                     if ($(this).prop('style')['left']=="110%") {
-                        $(this).animate({"left": "-30%"}, 5000 + Math.random() * 2000, 'linear', function() {
+                        $(this).animate({"left": "-70%"}, 8000 + Math.random() * 2000, 'linear', function() {
                             $(".comment").trigger("comment-leftmost");
                         });
                     }
                 });
                 $(".comment").on("comment-leftmost", function(){
-                    if ($(this).prop('style')['left']=="-30%") {
+                    if ($(this).prop('style')['left']=="-70%") {
                         $(this).css({"left": "110%"});
                     }
                     $(".comment").trigger("comment-rightmost");

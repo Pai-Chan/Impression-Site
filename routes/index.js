@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
 		if (err) {
 			posts = [];
 		}
-		res.render('index', {title: 'Main Page', posts: posts, currentUser: req.session.user});
+		console.log(posts);
+		res.render('index', {title: 'Impression Site - Main Page', posts: posts, currentUser: req.session.user});
 	});
 });
 
@@ -21,7 +22,10 @@ router.get('/u/:user', function(req, res) {
 			req.flash('error', 'Username does not exist.');
 			return res.redirect('/');
 		}
-		var currentUserName = req.session.user.name;
+		var currentUserName = null;
+		if (req.session.user) {
+			currentUserName = req.session.user.name;
+		}
 		var viewedUserName = req.params.user;
 
 		Comment.get(viewedUserName, function(err, comments){
@@ -102,7 +106,7 @@ router.post('/u/:user/comment', function(req, res) {
 			console.log(err);
 			return res.redirect('/');
 		}
-		req.flash('success','Successfully upload my danmaku');
+		req.flash('success','Successfully uploadeds');
 		res.redirect('/u/' + originusername);
 	});
 });
@@ -136,6 +140,11 @@ router.post('/reg', function(req, res){
 	if (req.body.username == "" || req.body.userpwd == "" || req.body.pwdrepeat == "") {
 		req.flash('error', 'Cannot be empty!');
 		return res.redirect('/reg');
+	}
+
+	if (req.body.invitationcode != "peichen") {
+		req.flash('error', 'Wrong Invitation Code for Registration');
+		return res.redirect('/');
 	}
 
 	if (req.body['userpwd'] !== req.body['pwdrepeat']) {
