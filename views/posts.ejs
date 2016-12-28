@@ -6,7 +6,7 @@
 		<div style="position: relative; overflow:hidden;">
 			<img style="width: 100%" src="/image/<%= post.user %>/<%= post.post.name %>" />
 			<% comments.forEach(function(comment, index) { %>
-			<div class="comment" style="word-break:keep-all; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; position: absolute; top: 70%; left: 110%;"><h2><p style="text-shadow: 1px 1px 1px #bbb;"><%= comment %></p><h2></div>
+			<div class="comment" style="word-break:keep-all; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; position: absolute; top: 70%; left: 110%; opacity: 0.8;"><h2><p style="text-shadow: 1px 1px 1px #bbb;"><%= comment %></p><h2></div>
 			<% }); %>
 		</div>
  	</div>
