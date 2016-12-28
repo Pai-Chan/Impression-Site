@@ -32,6 +32,13 @@ var fileUpload = require('express-fileupload');
 // });
 
 
+//Heroku dynamically assigns your app a port, 
+//so you can't set the port to a fixed number. 
+//Heroku adds the port to the env, 
+//so you can pull it from there. Switch your listen to this:
+var server = app.listen(process.env.PORT || 3000);
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
