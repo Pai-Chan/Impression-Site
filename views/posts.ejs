@@ -1,10 +1,10 @@
 <% posts.forEach(function(post, index) { %>
 
  <div class="row">
- 	<div class="span8">
- 		<h2><a href="/u/<%= post.user %>"><%= post.user %>'s Profile</a></h2>
+ 	<div class="span6" style="float: none; display: block; margin-left: auto; margin-right: auto;">
+ 		<h2 style="text-align: center;"><a href="/u/<%= post.user %>"><%= post.user %>'s Profile</a></h2>
 		<div style="position: relative; overflow:hidden;">
-			<img src="/image/<%= post.user %>/<%= post.post.name %>" />
+			<img style="width: 100%" src="/image/<%= post.user %>/<%= post.post.name %>" />
 			<% comments.forEach(function(comment, index) { %>
 			<div class="comment" style="word-break:keep-all; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; position: absolute; top: 70%; left: 110%;"><h2><p style="text-shadow: 1px 1px 1px #bbb;"><%= comment %></p><h2></div>
 			<% }); %>
