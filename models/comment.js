@@ -1,7 +1,7 @@
 var mongodb = require('./db');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
-var url = 'mongodb://heroku_s4ggn8s2:jqqqmp4nb70ou4phibtn2e248b@ds145208.mlab.com:45208/heroku_s4ggn8s2';	
+var url = 'mongodb://heroku_chenpei314:heroku_chenpei314.mlab.com:45208/heroku_s4ggn8s2';	
 
 function Comment(originusername, comment) {
 	this.originusername = originusername;
