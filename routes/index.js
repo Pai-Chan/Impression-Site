@@ -106,7 +106,7 @@ router.post('/u/:user/comment', function(req, res) {
 			console.log(err);
 			return res.redirect('/');
 		}
-		req.flash('success','Successfully uploadeds');
+		req.flash('success','Successfully uploaded');
 		res.redirect('/u/' + originusername);
 	});
 });
