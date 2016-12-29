@@ -10,47 +10,6 @@
             }
         </style>
         <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.css">
-        <script src="/javascripts/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $(".comment").on("set-top-value", function(){
-                    $(this).css({"top" : Math.random() * 90 + "%"});
-                    switch (Math.floor(Math.random() * 4)) {
-                        case 0:
-                            $(this).attr("class","comment text-warning");
-                            break;
-                        case 1:
-                            $(this).attr("class","comment text-error");
-                            break;
-                        case 2:
-                            $(this).attr("class","comment text-info");
-                            break;
-                        case 3:
-                            $(this).attr("class","comment text-success");
-                            break;
-                    }
-                });
-
-                $(".comment").on("comment-rightmost", function(){
-                    if ($(this).prop('style')['left']=="110%") {
-                        $(this).animate({"left": "-70%"}, 8000 + Math.random() * 2000, 'linear', function() {
-                            $(".comment").trigger("comment-leftmost");
-                        });
-                    }
-                });
-                $(".comment").on("comment-leftmost", function(){
-                    if ($(this).prop('style')['left']=="-70%") {
-                        $(this).css({"left": "110%"});
-                    }
-                    $(".comment").trigger("comment-rightmost");
-                });
-                $("#button2").on('click', function(){
-                    $(".comment").css({"left": '110%'});
-                });
-                $(".comment").trigger("set-top-value");
-                $(".comment").trigger("comment-rightmost");
-            });
-        </script>
     </head>
 
     <body>
