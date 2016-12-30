@@ -76,6 +76,36 @@ Post.get = function get(username, callback) {
 	});
 };
 
+Post.getAll = function getAll(callback) {
+	MongoClient.connect(url, function(err, db) {
+		if (err) {
+			return callback(err);
+		}
+		db.collection('posts', function(err, collection) {
+			if (err) {
+				db.close();
+				return callback(err);
+			}
+
+			var query = {};
+
+			collection.find(query).sort({time: -1}).toArray(function(err, docs){
+				db.close();
+				if (err) {
+					callback(err, null);
+				}
+
+				var posts = [];
+				docs.forEach(function(doc, index) {
+					posts.push(doc);
+				});
+				callback(null, posts);
+			});
+		});
+	});
+};
+
+
 Post.getPic = function getPic(username, filename, callback) {
 
 	MongoClient.connect(url, function(err, db) {

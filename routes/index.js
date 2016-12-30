@@ -7,7 +7,7 @@ var Comment = require('../models/comment.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	Post.get(null, function(err, posts) {
+	Post.getAll(function(err, posts) {
 		if (err) {
 			posts = [];
 		}
@@ -216,6 +216,14 @@ router.get('/logout', function(req, res) {
 router.post('/users', function(req, res) {
 	console.log('admin refresh');
 	res.send(200);
+});
+
+router.get('/img/:filename', function(req, res){
+	res.sendFile('./public/img/' + filename, {root: __dirname + '/..'});
+});
+
+router.get('/guide', function(req, res){
+	res.render('guide', {title: 'Impression Site - Guide', currentUser: req.session.user});
 });
 
 function checkNotLogin(req, res, next) {

@@ -1,0 +1,54 @@
+<%- include header.ejs %>
+<%- messages() %>
+<div class="hero-unit">
+	<h1>Welcome to Impression Site</h1>
+	<p>This site enables you to upload your profile and collect the impressions from your friends, displayed as the marquee. You can also send your impression as the marquee hovering over their profiles.</p>
+	<p>
+		<a class="btn btn-primary btn-large" href="/login">Log in</a>
+		<a class="btn btn-info btn-large" href="/reg">Sign up</a>
+		<a class="btn btn-warning btn-large" href="/guide">First Time to Come? Click Here</a>
+	</p>
+</div>
+
+<div class="row" style="position: relative; overflow:hidden;">
+	<div class="span12">
+		<h2>Let's explore this website. What can you do here?</h2>
+		<p>1. You can click "Sign up" button on the navigation bar for registration. Remember to bring your invitation code from the website owner.</p>
+		<img src="/img/registration_shot.png" style="border-style: outset;">
+		<br/>
+		<p>2. You can log in the site by clicking "Login in" button once you finish the registration process.</p>
+		<img src="/img/login_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>3. By clicking on "Impression on me", you can go to your impression page.</p>
+		<img src="/img/upload_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>4. Because you havn't upload your profile, you can hardly see anything here. You can choose your profile and click the green button to upload. After that, you can see what is shown below.</p>
+		<img src="/img/upload_success_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>5. Your profile will also be displayed on the main page. By clicking on that picture, you can reach your own page as well.</p>
+		<img src="/img/mainpage_part_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>6. Maybe you've noticed that the Upload Panel disappears after the profile uploaded. Then, how to choose a new picture? Just click the red button below the profile.</p>
+		<img src="/img/delete_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>7. Below the Delete Panel, there is a panel for you to send impreesion. Write down what you want to say, click on "Send Impression."</p>
+		<img src="/img/send_impression_shot.png" style="border-style: dashed;">
+		<br/>
+		<p>8. Now you can see your words become a piece of marquee hovering over the profile. The color and position and speed of the words are randomized everytime you refresh the page. Funny? It circles around and around... (what is illustrated below is the static screenshot only)</p>
+		<img src="/img/impression_sended.png" style="border-style: dashed;">
+		<br/>
+		<p>9. You can also send impression on others as a visitor without loging into the website. Your words will be displayed with others'. What do you wanna say... Think about it and have a try.</p>
+		<br/>
+		<p>10. This form of art could be called marquee, but technically speaking, this name cannot cover its meaning accurately. This art originates from Japan, referred to as Danmaku. Also, it is popular in China as Danmu. People in east Asia enjoy having fun with it when watching online video, sharing their opinions with others who watch the same video as well. Here, I have an idea to applying it into personal profile. Will it be popular? Won't it be too simple? I have no idea, but twitter is just as simple as a collection of 140-letter messages... and popular. Isn't it? </p>
+		<br/>
+		<p>11. Now, please enjoy it!</p>
+		<% for (var i=0; i<10; i++) { %>
+			<div class="comment" style="word-break:keep-all; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; position: absolute; top: 70%; left: 110%; opacity: 0.2;"><h2><p style="text-shadow: 1px 1px 1px #bbb;">Enjoy it!</p></h2>
+			</div>
+		<% } %>
+		<p>12. If you have any idea to share with me, please email me at pc30@rice.edu.</p>
+
+	</div>
+</div>
+
+<%- include footer.ejs %>

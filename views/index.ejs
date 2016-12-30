@@ -2,10 +2,11 @@
 <%- messages() %>
 <div class="hero-unit">
 	<h1>Welcome to Impression Site</h1>
-	<p>This site enables you to upload your profile and collect the impressions from your friends, displayed as the marquee.</p>
+	<p>This site enables you to upload your profile and collect the impressions from your friends, displayed as the marquee. You can also send your impression as the marquee hovering over their profiles.</p>
 	<p>
 		<a class="btn btn-primary btn-large" href="/login">Log in</a>
-		<a class="btn btn-large" href="/reg">Sign up</a>
+		<a class="btn btn-info btn-large" href="/reg">Sign up</a>
+		<a class="btn btn-warning btn-large" href="/guide">First Time Coming Here? Click This Button!</a>
 	</p>
 </div>
 
@@ -13,8 +14,8 @@
 	if (index % 3 == 0) { %>
 	<div class="row">
 <% } %>
-	<div class="span4">
-		<h2><a href="/u/<%= post.user %>"><%= post.user %>'s Profile</a></h2>
+	<div class="span3">
+		<h4><a href="/u/<%= post.user %>"><%= post.user %></a></h4>
 		<img src="/image/<%= post.user %>/<%= post.post.name %>" />
   	</div>
 <% if (index % 3 == 2) { %>
