@@ -8,4 +8,4 @@ You can visit this website at http://impression-site.herokuapp.com/
 
 The User Guide of the website is at http://impression-site.herokuapp.com/guide
 
-Welcome any idea to be shared with me.
+Welcome any idea to be shared with me. I appreciate it very much!
